@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "AI Song Maker",
+    "slug": "gumbo-ai-song-generator",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0F172A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gumbotech.aisongmaker",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "We need access to speech recognition to detect your preferred song language.",
+        "NSMicrophoneUsageDescription": "We need access to your microphone to capture your language preference."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F172A"
+      },
+      "package": "com.gumbotech.aisongmaker",
+      "permissions": [
+        "RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow AI Song Maker to access your microphone to record your language preference.",
+          "recordAudioAndroid": true
+        }
+      ],
+      "expo-status-bar"
+    ]
+  }
+}
