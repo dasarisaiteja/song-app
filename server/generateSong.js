@@ -221,9 +221,12 @@ async function handleGenerateSong(req, res) {
     const filePath = path.join(publicAudioDir, fileName);
     fs.writeFileSync(filePath, audioBuffer);
 
-    // Build full playable URL (e.g. http://<req.headers.host>/audio/song_<timestamp>.mp3)
+    // Build full playable URL (e.g. https://<req.headers.host>/audio/song_<timestamp>.mp3)
     const host = req.headers.host || 'localhost:3000';
-    const protocol = req.protocol || 'http';
+    let protocol = req.headers['x-forwarded-proto'] || req.protocol || 'http';
+    if (host.includes('onrender.com')) {
+      protocol = 'https';
+    }
     const audioUrl = `${protocol}://${host}/audio/${fileName}`;
 
     // Log lyrics and file size in bytes to the terminal

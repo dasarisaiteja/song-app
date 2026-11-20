@@ -4,7 +4,6 @@
     "slug": "gumbo-ai-song-generator",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
       "resizeMode": "contain",
@@ -26,7 +25,9 @@
       "permissions": [
         "RECORD_AUDIO",
         "android.permission.RECORD_AUDIO",
-        "android.permission.MODIFY_AUDIO_SETTINGS"
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
       ]
     },
     "plugins": [
@@ -38,6 +39,11 @@
         }
       ],
       "expo-status-bar"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4abc7ee4-561e-4d98-959a-4ae1d7ab65e0"
+      }
+    }
   }
 }
